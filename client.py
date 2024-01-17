@@ -1,6 +1,5 @@
 import socket
 import sys
-import re
 
 def is_valid_mac(mac_address):
     # Regular expression to validate MAC address format
@@ -33,7 +32,12 @@ try:
             print("Server closed the connection. Goodbye!")
             break
 
-        print(f"Server: {data.decode('utf-8')}")
+        server_message = data.decode('utf-8')
+        print(f"Server: {server_message}")
+
+        if server_message.lower() == "bye":
+            print("Server requested to close the connection. Closing...")
+            break
 
 except OSError as e:
     print(f"Error: {e}")
