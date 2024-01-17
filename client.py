@@ -18,7 +18,8 @@ client = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_R
 
 try:
     client.connect((server_mac_address, 4))
-    print(f"Connected to server at {server_mac_address}")
+    server_address, server_port = client.getpeername()
+    print(f"Connected to server at {server_address}:{server_port}")
 
     while True:
         message = input("Client: ")
