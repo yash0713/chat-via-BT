@@ -8,7 +8,8 @@ try:
     print("Waiting for incoming connections...")
 
     client, addr = server.accept()
-    print(f"Connected to {addr}")
+    client_address, client_port = client.getpeername()
+    print(f"Connected to {addr} on port {client_port}")
 
     try:
         while True:
