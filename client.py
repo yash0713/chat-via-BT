@@ -1,5 +1,6 @@
 import socket
 import sys
+import re
 
 def is_valid_mac(mac_address):
     # Regular expression to validate MAC address format
