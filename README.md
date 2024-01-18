@@ -21,7 +21,6 @@ OR, if commandline scares you enough to make you choose a longer path
 
 ## Make the changes
 1. in server.py, write your own MAC address at line 4
-2. in client.py, write your own MAC address at line 4
    
 ## How to setup :
 1. Download the server.py on the server system
@@ -29,5 +28,5 @@ OR, if commandline scares you enough to make you choose a longer path
 3. type and enter : py server.py
 4. Download the client.py on the client system
 5. Go to the folder where client.py is stored and open terminal
-6. type and enter : py client.py
+6. type and enter : py client.py {MAC_address_of_the_server}
 7. The connection will now be established and you can start texting.
