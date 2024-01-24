@@ -1,5 +1,12 @@
 import socket
 import threading
+import sys
+import re
+
+def is_valid_mac(mac_address):
+    # Regular expression to validate MAC address format
+    mac_pattern = re.compile(r'^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$')
+    return bool(mac_pattern.match(mac_address))
 
 def receive_messages(client):
     try:
@@ -40,10 +47,15 @@ def send_messages(client):
         client.close()
 
 # Your original client code
+if len(sys.argv) != 2 or not is_valid_mac(sys.argv[1]):
+    print("Usage: python script_name.py <server_mac_address>")
+    print("Please check the MAC address format.")
+    sys.exit(1)
+server_mac_address = sys.argv[1]
 client = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
 
 try:
-    client.connect(("C8:E2:65:CD:D7:FE", 4))
+    client.connect(({server_mac_address}, 4))
     server_address, server_port = client.getpeername()
     print(f"Connected to server at {server_address}:{server_port}")
 
