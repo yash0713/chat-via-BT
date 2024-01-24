@@ -9,7 +9,7 @@ def receive_messages(client):
                 break
 
             message = data.decode('utf-8')
-            print(f"Client: {message}")
+            print(f"\rClient: {message}")
 
             if message.lower() == "bye":
                 print("Client requested to close the connection. Closing...")
