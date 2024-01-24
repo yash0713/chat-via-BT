@@ -55,7 +55,7 @@ server_mac_address = sys.argv[1]
 client = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
 
 try:
-    client.connect(({server_mac_address}, 4))
+    client.connect((server_mac_address, 4))
     server_address, server_port = client.getpeername()
     print(f"Connected to server at {server_address}:{server_port}")
 
