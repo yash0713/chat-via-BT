@@ -16,7 +16,7 @@ def receive_messages(client):
                 break
 
             server_message = data.decode('utf-8')
-            print(f"Server: {server_message}")
+            print(f"\rServer: {server_message}")
 
             if server_message.lower() == "bye":
                 print("Server requested to close the connection. Closing...")
